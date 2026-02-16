@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const inizialData = {
@@ -16,10 +17,19 @@ export default function App() {
       [name]: type === "checkbox" ? checked : value,
     });
   }
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
+      .then((res) => {
+        console.log("post inviato");
+      });
+  };
+
   return (
     <>
       <div className="container">
-        <form>
+        <form onSubmit={handleFormSubmit}>
           <div>
             <label className="form-label">Autore</label>
             <input
@@ -59,10 +69,13 @@ export default function App() {
               onChange={handleFormData}
               id="checkDefault"
             />
-            <label class="form-check-label" htmlFor="checkDefault">
+            <label className="form-check-label" htmlFor="checkDefault">
               Pubblica
             </label>
           </div>
+          <button type="submit" className="btn btn-primary">
+            Invia Post
+          </button>
         </form>
       </div>
     </>
