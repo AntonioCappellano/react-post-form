@@ -22,12 +22,24 @@ export default function App() {
           <div>
             <label className="form-label">Autore</label>
             <input
+              type="text"
               className="form-control"
               name="author"
               value={formData.author}
               onChange={handleFormData}
             ></input>
           </div>
+          <div>
+            <label className="form-label">Titolo</label>
+            <input
+              type="text"
+              className="form-control"
+              name="title"
+              value={formData.title}
+              onChange={handleFormData}
+            ></input>
+          </div>
+          
         </form>
       </div>
     </>
