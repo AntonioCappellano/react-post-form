@@ -15,5 +15,21 @@ export default function App() {
       [e.target.name]: e.target.value,
     });
   }
-  return <></>;
+  return (
+    <>
+      <div className="container">
+        <form>
+          <div>
+            <label className="form-label">Autore</label>
+            <input
+              className="form-control"
+              name="author"
+              value={formData.author}
+              onChange={handleFormData}
+            ></input>
+          </div>
+        </form>
+      </div>
+    </>
+  );
 }
